@@ -123,6 +123,24 @@
           //assert
           $this->assertEquals($test_stylist, $result);
         }
+
+        function test_new_stylistName()
+        {
+          //arrange
+          $stylistName = "Stacy";
+          $test_stylist = new Stylist($id=null, $stylistName);
+          $test_stylist->save();
+
+
+          $stylistName_new = "Amy";
+
+
+          //act
+          $test_stylist->update($stylistName_new);
+
+          //assert
+          $this->assertEquals($stylistName_new, $test_stylist->getName());
+        }
     }
 
  ?>
