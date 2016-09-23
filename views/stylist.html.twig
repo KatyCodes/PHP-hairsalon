@@ -38,9 +38,13 @@
           {% endif %}
       </div>
 
-      </div>
+
       <br>
+      <form action="/confirmDeleteStylist/{{ stylist.getId }}" method="post">
+         <input name="_method" type="hidden" value="delete">
+          <button type="submit" class="btn">Delete This Stylist</button>
+      </form>
       <a href="/">Home</a>
-    </div>
+  </div>
 </body>
 </html>

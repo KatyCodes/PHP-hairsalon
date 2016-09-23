@@ -20,7 +20,10 @@
           <button class="btn" type="submit">Update Name</button>
       </form>
       <a href="/">Home</a>
-      
+      <form action="/confirmDeleteclient/{{ client.getId }}" method="post">
+         <input name="_method" type="hidden" value="delete">
+          <button type="submit" class="btn">Delete This Client</button>
+      </form>
     </div>
 </body>
 </html>
