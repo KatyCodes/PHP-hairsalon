@@ -31,6 +31,12 @@
             $this->setName($new_stylistName);
     }
 
+    function delete()
+    {
+      $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
+            // $GLOBALS['DB']->exec("DELETE FROM restaurants WHERE cuisine_id = {$this->getId()};");
+    }
+
     function save()
     {
         $GLOBALS['DB']->exec("INSERT INTO stylists (stylistName) VALUES ('{$this->getName()}')");
