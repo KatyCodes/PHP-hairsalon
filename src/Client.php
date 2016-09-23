@@ -37,6 +37,11 @@
             $this->setName($new_clientName);
     }
 
+    function deleteClient()
+    {
+      $GLOBALS['DB']->exec("DELETE FROM clients WHERE id = {$this->getId()};");
+    }
+
     function save()
     {
         $GLOBALS['DB']->exec("INSERT INTO clients (stylist_id, clientName) VALUES ({$this->getStylistId()}, '{$this->getName()}');");
