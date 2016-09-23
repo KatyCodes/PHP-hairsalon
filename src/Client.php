@@ -37,6 +37,19 @@
         $this->id = $GLOBALS['DB']->lastInsertId();
     }
 
+    static function findStylist($search_id)
+    {
+      $found_stylist = null;
+            $stylists = Stylist::getAll();
+            foreach($stylists as $stylist){
+                $stylist_id = $stylist->getId();
+                if($stylist_id == $search_id){
+                    $found_stylist = $stylist;
+                }
+            }
+          return $found_stylist;
+    }
+
     static function getAll()
     {
       $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients;");

@@ -114,8 +114,9 @@
          $id= 1;
          $stylist_name = "Stacy";
          $new_stylist = new Stylist($id, $stylist_name);
+         $new_stylist->save();
 
-         $stylist_id = 1;
+         $stylist_id = $new_stylist->getId();
          $name = "Katy";
          $test_client = new Client($id=null, $stylist_id, $name);
          $test_client->save();
@@ -134,7 +135,35 @@
          //assert
          $this->assertEquals([], $result);
          }
-       
+
+       function testfindStylist()
+       {
+         //arrange
+         $id= 1;
+         $stylist_name = "Stacy";
+         $new_stylist = new Stylist($id, $stylist_name);
+         $new_stylist->save();
+
+
+         $stylist_id = $new_stylist->getID();
+         $name = "Katy";
+         $test_client = new Client($id=null, $stylist_id, $name);
+         $test_client->save();
+
+         $stylist_id1 = 2;
+         $name = "Amy";
+         $test_client1 = new Client($id=null, $stylist_id1, $name);
+         $test_client1->save();
+
+
+         //act
+         $result = Client::findStylist($new_stylist->getId());
+
+
+
+         //assert
+         $this->assertEquals($new_stylist, $result);
+       }
 
 
    }
