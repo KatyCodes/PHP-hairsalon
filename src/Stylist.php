@@ -15,6 +15,11 @@
       return $this->id;
     }
 
+    function getName()
+    {
+      return $this->stylistName;
+    }
+
   }
 
 ?>
