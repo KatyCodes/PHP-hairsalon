@@ -83,7 +83,7 @@
 
     $app->delete("/confirmDeleteclient/{id}", function ($id) use ($app){
     $client = Client::find($id);
-    $client->deleteClient();
+    $client->delete();
     return $app['twig']->render('index.html.twig',  array('stylists' => Stylist::getAll()));
   });
     return $app;
