@@ -27,5 +27,19 @@
        $this->assertEquals($id, $result);
    }
 
+   function test_getStylistId()
+   {
+       //arrange
+       $stylist_id = 1;
+       $name = "Katy";
+       $test_client = new Client($id=null, $stylist_id, $name);
+
+       //act
+       $result = $test_client->getStylistId();
+
+       //assert
+       $this->assertEquals($stylist_id, $result);
+   }
+
  }
 ?>
