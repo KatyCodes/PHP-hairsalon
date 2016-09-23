@@ -31,23 +31,16 @@
       $this->name = (string) $name;
     }
 
+    function update($new_clientName)
+    {
+      $GLOBALS['DB']->exec("UPDATE clients SET clientsName = '{$new_clientName}' WHERE id = {$this->getId()};");
+            $this->setName($new_clientName);
+    }
+
     function save()
     {
         $GLOBALS['DB']->exec("INSERT INTO clients (stylist_id, clientName) VALUES ({$this->getStylistId()}, '{$this->getName()}');");
         $this->id = $GLOBALS['DB']->lastInsertId();
-    }
-
-    static function findStylist($search_id)
-    {
-      $found_stylist = null;
-            $stylists = Stylist::getAll();
-            foreach($stylists as $stylist){
-                $stylist_id = $stylist->getId();
-                if($stylist_id == $search_id){
-                    $found_stylist = $stylist;
-                }
-            }
-          return $found_stylist;
     }
 
     static function getAll()
@@ -67,6 +60,19 @@
     static function deleteAll()
        {
            $GLOBALS['DB']->exec("DELETE FROM clients;");
+       }
+
+    static function findStylist($search_id)
+       {
+         $found_stylist = null;
+               $stylists = Stylist::getAll();
+               foreach($stylists as $stylist){
+                   $stylist_id = $stylist->getId();
+                   if($stylist_id == $search_id){
+                       $found_stylist = $stylist;
+                   }
+               }
+             return $found_stylist;
        }
 
 

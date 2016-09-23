@@ -155,16 +155,35 @@
          $test_client1 = new Client($id=null, $stylist_id1, $name);
          $test_client1->save();
 
-
          //act
          $result = Client::findStylist($new_stylist->getId());
-
-
 
          //assert
          $this->assertEquals($new_stylist, $result);
        }
 
+       function testupdate()
+       {
+         //arrange
+         $id= 1;
+         $stylist_name = "Stacy";
+         $new_stylist = new Stylist($id, $stylist_name);
+         $new_stylist->save();
+
+
+         $stylist_id = $new_stylist->getID();
+         $name = "Katy";
+         $test_client = new Client($id=null, $stylist_id, $name);
+         $test_client->save();
+
+         $new_clientName = "Candy";
+
+         //act
+         $test_client->update($new_clientName);
+
+         //assert
+         $this->assertEquals($new_clientName, $test_client->getName());
+       }
 
    }
 ?>
