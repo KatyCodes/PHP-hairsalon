@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <title>Curl up and Dye Salon</title>
+</head>
+<body>
+    <h1><img src="/girl.png">Update client</h1>
+    <div class="container">
+      <h1>{{client.getName}}</h1>
+
+      <form action="/updatedClient{{client.getId}}" method="post">
+          <input type="hidden" value="patch" name="_method">
+          <label for="clientName">Update Name</label>
+          <input id="clientName" class="form-control" type="text" name="clientName" required>
+          <br>
+          <button class="btn" type="submit">Update Name</button>
+      </form>
+      <a href="/">Home</a>
+
+    </div>
+</body>
+</html>

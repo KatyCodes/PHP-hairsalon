@@ -10,12 +10,12 @@
 <body>
     <h1><img src="/girl.png">Our Stylists</h1>
     <div class="container">
-      <h2>{{stylists.getName}}'s clients</h2>
+      <h2>{{stylist.getName}}'s clients</h2>
       <div class="row">
           <div class="input">
             <h3>Add a Client</h3>
                 <form action="/addClient" method="post">
-                    <input id="stylist_id" value="{{ stylists.getId }}" type="hidden" name="stylist_id">
+                    <input id="stylist_id" value="{{ stylist.getId }}" type="hidden" name="stylist_id">
                     <label for="client">Enter client's name:</label>
                     <input id="name" class="form-control" type="text" name="clientName" required>
                     <br>
@@ -24,7 +24,7 @@
           </div>
           {% if clients is not empty %}
               {% for client in clients %}
-              <h4>{{ client.getName }} </h4>
+              <h4><a href="/getClient/{{client.getId}}">{{client.getName}}</a> </h4>
               {% endfor %}
           {% endif %}
       </div>
