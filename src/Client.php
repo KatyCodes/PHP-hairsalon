@@ -48,6 +48,8 @@
         $this->id = $GLOBALS['DB']->lastInsertId();
     }
 
+  
+
     static function getAll()
     {
       $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients;");

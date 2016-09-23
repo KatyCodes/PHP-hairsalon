@@ -43,6 +43,20 @@
         $this->id = $GLOBALS['DB']->lastInsertId();
     }
 
+    function getClients()
+       {
+           $clients = array();
+           $returned_client = $GLOBALS['DB']->query("SELECT * FROM clients WHERE stylist_id = {$this->getId()};");
+           foreach($returned_client as $client){
+               $id = $client['id'];
+               $stylist_id = $client['stylist_id'];
+               $name = $client['clientName'];
+               $new_client = new Client($id, $stylist_id, $name);
+               array_push($clients, $new_client);
+           }
+           return $clients;
+       }
+
     static function getAll()
      {
          $returned_stylist = $GLOBALS['DB']->query("SELECT * FROM stylists;");
@@ -73,6 +87,7 @@
             }
           return $found_stylist;
       }
+
 
   }
 ?>
