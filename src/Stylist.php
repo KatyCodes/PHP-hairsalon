@@ -67,6 +67,7 @@
              $new_stylist = new Stylist($id, $stylist_name);
              array_push($stylists, $new_stylist);
          }
+        
          return $stylists;
      }
 

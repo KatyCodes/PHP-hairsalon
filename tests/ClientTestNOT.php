@@ -155,60 +155,59 @@
         //act
 
          $result = $test_client->getStylistId();
-        //  var_dump($result);
          //assert
          $this->assertEquals($new_stylist->getId(), $result);
        }
 
-      //  function testupdate()
-      //  {
-      //    //arrange
-      //    $id= 1;
-      //    $stylist_name = "Stacy";
-      //    $new_stylist = new Stylist($id, $stylist_name);
-      //    $new_stylist->save();
-       //
-       //
-      //    $stylist_id = $new_stylist->getID();
-      //    $name = "Katy";
-      //    $test_client = new Client($id=null, $stylist_id, $name);
-      //    $test_client->save();
-       //
-      //    $new_clientName = "Candy";
-       //
-      //    //act
-      //    $test_client->update($new_clientName);
-       //
-      //    //assert
-      //    $this->assertEquals($new_clientName, $test_client->getName());
-      //  }
-       //
-      //  function testdeleteClient()
-      //  {
-      //    //arrange
-      //    $id= 1;
-      //    $stylist_name = "Stacy";
-      //    $new_stylist = new Stylist($id, $stylist_name);
-      //    $new_stylist->save();
-       //
-       //
-      //    $stylist_id = $new_stylist->getID();
-      //    $name = "Katy";
-      //    $test_client2 = new Client($id=null, $stylist_id, $name);
-      //    $test_client2->save();
-       //
-      //    $name1 = "Amy";
-      //    $test_client1 = new Client($id=null, $stylist_id, $name1);
-      //    $test_client1->save();
-       //
-       //
-      //    //act
-      //    $test_client2->deleteClient();
-       //
-       //
-      //    //assert
-      //    $this->assertEquals([$test_client1], Client::getAll());
-       //
-      //  }
+       function testupdate()
+       {
+         //arrange
+         $id= 1;
+         $stylist_name = "Stacy";
+         $new_stylist = new Stylist($id, $stylist_name);
+         $new_stylist->save();
+
+
+         $stylist_id = $new_stylist->getID();
+         $name = "Katy";
+         $test_client = new Client($id=null, $stylist_id, $name);
+         $test_client->save();
+
+         $new_clientName = "Candy";
+
+         //act
+         $test_client->update($new_clientName);
+
+         //assert
+         $this->assertEquals($new_clientName, $test_client->getName());
+       }
+
+       function testdeleteClient()
+       {
+         //arrange
+         $id= 1;
+         $stylist_name = "Stacy";
+         $new_stylist = new Stylist($id, $stylist_name);
+         $new_stylist->save();
+
+
+         $stylist_id = $new_stylist->getID();
+         $name = "Katy";
+         $test_client2 = new Client($id=null, $stylist_id, $name);
+         $test_client2->save();
+
+         $name1 = "Amy";
+         $test_client1 = new Client($id=null, $stylist_id, $name1);
+         $test_client1->save();
+
+
+         //act
+         $test_client2->deleteClient();
+
+
+         //assert
+         $this->assertEquals([$test_client1], Client::getAll());
+
+       }
    }
 ?>
