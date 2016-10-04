@@ -32,6 +32,7 @@
      $app->post("/addStylist", function() use ($app) {
          $stylist = new Stylist($id= null, $_POST['stylist']);
          $stylist->save();
+         var_dump($stylist);
          return $app['twig']->render('index.html.twig', array('stylists' =>  Stylist::getAll()));
      });
 
