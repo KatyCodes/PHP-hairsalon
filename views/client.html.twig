@@ -19,11 +19,11 @@
           <button class="btn" type="submit">Update Name</button>
       </form>
       <br>
-      <form action="/confirmDeleteclient/{{ client.getId }}" method="post">
+      <form action="/confirmDeleteclient/{{client.getId}}" method="post">
          <input name="_method" type="hidden" value="delete">
           <button type="submit" class="btn">Delete This Client</button>
       </form>
-      <a href="/">Home</a>
+      <a href="/backToStylist{{client.getStylistid}}">Back to Stylist</a>
     </div>
 </body>
 </html>
