@@ -2,12 +2,12 @@
   class Stylist
   {
     private $id;
-    private $stylistName;
+    private $stylist_name;
 
-    function __construct($id = null, $stylistName)
+    function __construct($id = null, $stylist_name)
     {
         $this->id = $id;
-        $this->stylistName = $stylistName;
+        $this->stylist_name = $stylist_name;
     }
 
     function getId()
@@ -17,18 +17,18 @@
 
     function getName()
     {
-        return $this->stylistName;
+        return $this->stylist_name;
     }
 
-    function setName($stylistName)
+    function setName($stylist_name)
     {
-        $this->stylistName = (string) $stylistName;
+        $this->stylist_name = (string) $stylist_name;
     }
 
-    function update($new_stylistName)
+    function update($new_stylist_name)
     {
-      $GLOBALS['DB']->exec("UPDATE stylists SET stylistName = '{$new_stylistName}' WHERE id = {$this->getId()};");
-            $this->setName($new_stylistName);
+      $GLOBALS['DB']->exec("UPDATE stylists SET stylist_name = '{$new_stylist_name}' WHERE id = {$this->getId()};");
+            $this->setName($new_stylist_name);
     }
 
     function delete()
@@ -39,7 +39,7 @@
 
     function save()
     {
-        $GLOBALS['DB']->exec("INSERT INTO stylists (stylistName) VALUES ('{$this->getName()}')");
+        $GLOBALS['DB']->exec("INSERT INTO stylists (stylist_name) VALUES ('{$this->getName()}')");
         $this->id = $GLOBALS['DB']->lastInsertId();
     }
 
@@ -63,8 +63,8 @@
          $stylists = array();
          foreach($returned_stylists as $stylist){
              $id = $stylist['id'];
-             $stylistName = $stylist['stylistName'];
-             $new_stylist = new Stylist($id, $stylistName);
+             $stylist_name = $stylist['stylist_name'];
+             $new_stylist = new Stylist($id, $stylist_name);
              array_push($stylists, $new_stylist);
          }
          return $stylists;
