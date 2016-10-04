@@ -28,23 +28,22 @@
                     <label for="client">Enter client's name:</label>
                     <input id="name" class="form-control" type="text" name="clientName" required>
                     <br>
-                    <button type="submit" class="btn">Add</button>
+                    <button type="submit" class="btn">Add Client</button>
                 </form>
-          </div>
+
           {% if clients is not empty %}
               {% for client in clients %}
               <h4><a href="/getClient/{{client.getId}}">{{client.getName}}</a> </h4>
               {% endfor %}
           {% endif %}
       </div>
-
-
-      <br>
+      <hr>
       <form action="/confirmDeleteStylist/{{ stylist.getId }}" method="post">
          <input name="_method" type="hidden" value="delete">
           <button type="submit" class="btn">Delete This Stylist</button>
       </form>
-      <a href="/">Home</a>
+        <h3><a href="/">Home</a></h3>
+    </div>
   </div>
 </body>
 </html>

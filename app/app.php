@@ -30,7 +30,8 @@
 
     //add a stylist on home page
     $app->post("/addStylist", function() use ($app) {
-        $stylist = new Stylist($id= null, $_POST['stylist']);
+        $id = null;
+        $stylist = new Stylist($id, $_POST['stylist']);
         $stylist->save();
         return $app['twig']->render('index.html.twig', array('stylists' =>  Stylist::getAll()));
     });
@@ -38,7 +39,7 @@
     //delete stylist
         $app->post("/deleteAllStylist", function() use ($app) {
         Stylist::deleteAll();
-        return $app['twig']->render('index.html.twig', array('stylist' =>  Stylist::getAll()));
+        return $app['twig']->render('index.html.twig', array('stylists' =>  Stylist::getAll()));
     });
 
     $app->get("/updateStylist{id}", function($id) use ($app) {
@@ -88,9 +89,8 @@
     });
 
     $app->get("/backToStylist{id}", function ($id) use ($app){
-        $client = Client::find($id);
-        $stylist = Stylist::find($id);
-        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'client' => $client, 'clients' => $stylist->getClients()));
+      $stylist = Stylist::find($id);
+      return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
 
