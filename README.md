@@ -17,7 +17,7 @@ This is a dynamic site that takes user input and generates lists of clients and 
   * mysql -uroot -proot
   * CREATE DATABASE hair_salon;
   * USE hair_salon;
-  * CREATE TABLE stylists (id serial PRIMARY KEY, stylistName VARCHAR(255));
+  * CREATE TABLE stylists (id serial PRIMARY KEY, stylist_name VARCHAR(255));
   * CREATE TABLE clients (id serial PRIMARY KEY, stylist_id INT, clientName VARCHAR(255));
   * in console :apachectl start
   * web-browser: localhost:8080/phpmyadmin
